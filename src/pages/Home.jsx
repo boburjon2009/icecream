@@ -1,6 +1,9 @@
 import { ArrowRight, Star, Heart, ShoppingCart } from "lucide-react";
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 574301e (functions)
 
 // product images
 import product1 from '../imgs/prodect-1.png'
@@ -8,6 +11,13 @@ import product2 from '../imgs/prodect-2.png'
 import product3 from '../imgs/prodect-3.png'
 import product4 from '../imgs/prodect-4.png'
 
+<<<<<<< HEAD
+=======
+
+// context
+import { CartContext } from '../context/CartContext'
+import { useContext } from "react";
+>>>>>>> 574301e (functions)
 
 const categories = [
   {
@@ -65,6 +75,14 @@ export default function Home() {
       bg: "#F7F2F7"
     },
   ];
+
+  // useContext
+  const { setCart } = useContext(CartContext);
+
+  // add to cart function
+  const addToCart = (i) => {
+    setCart((prev) => [...prev, i]);
+  }
 
 
   return (
@@ -136,7 +154,7 @@ export default function Home() {
 
 
       {/* cart sections */}
-      <div class="w-full h-[80vh] flex items-center justify-center bg-[linear-gradient(301.26deg,#EFD7EF_8%,#F5F9FC_43%,#F8EAE1_64%,#EAF8F9_87%)]">
+      <div className="w-full h-[80vh] flex items-center justify-center bg-[linear-gradient(301.26deg,#EFD7EF_8%,#F5F9FC_43%,#F8EAE1_64%,#EAF8F9_87%)]">
         <div className="flex flex-col gap-3">
           <h1 className="text-5xl font-bold text-center">Our <span className="text-[#F83D8E]">Classic</span>  Favorites</h1>
           <p className="text-sm text-[#646464] text-center">Check out our top products that our customers love.</p>
@@ -144,8 +162,8 @@ export default function Home() {
           {/* card  */}
           <div className="w-full grid grid-cols-4 gap-5 mt-10">
 
-            {products.map((i) => (
-              <div className="relative w-72 bg-white rounded-2xl shadow-md p-4">
+            {products.map((i, index) => (
+              <div key={index} className="relative w-72 bg-white rounded-2xl shadow-md p-4">
                 <div className="bg-[#F7F2F7] rounded-lg py-5">
                   <button className="absolute top-5 left-5 text-gray-500 hover:text-pink-500 bg-white p-2 rounded-full">
                     <Heart size={20} />
@@ -173,7 +191,7 @@ export default function Home() {
 
                 <div className="flex justify-between items-center mt-4">
                   <p className="text-pink-600 font-bold text-lg">${i.price}</p>
-                  <button className="p-3 rounded-full bg-[#683292] text-white hover:bg-pink-600 cursor-pointer">
+                  <button onClick={() => addToCart(i)} className="p-3 rounded-full bg-[#683292] text-white hover:bg-pink-600 cursor-pointer">
                     <ShoppingCart size={18} />
                   </button>
                 </div>
