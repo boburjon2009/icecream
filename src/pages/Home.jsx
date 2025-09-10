@@ -1,4 +1,17 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Star, Heart, ShoppingCart } from "lucide-react";
+
+// swipper
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+
+// product images
+import product1 from '../imgs/prodect-1.png'
+import product2 from '../imgs/prodect-2.png'
+import product3 from '../imgs/prodect-3.png'
+import product4 from '../imgs/prodect-4.png'
+
+import { Pagination } from "swiper/modules";
 
 const categories = [
   {
@@ -20,6 +33,44 @@ const categories = [
 ];
 
 export default function Home() {
+
+  // product
+  const products = [
+    {
+      id: 1,
+      img: product1,
+      title: "Chocolate Brownie Sundae",
+      desc: "Rich chocolate ice cream with chunks of brownie.",
+      price: 5.49,
+      bg: "#F7F2F7"
+    },
+    {
+      id: 1,
+      img: product2,
+      title: "Strawberry Shortcake",
+      desc: "Strawberry ice cream layered with shortcake",
+      price: 5.29,
+      bg: "#F7F2F7"
+    },
+    {
+      id: 1,
+      img: product3,
+      title: "Mint Chocolate Chip Cone",
+      desc: "Refreshing mint ice cream with chocolate chips.",
+      price: 3.99,
+      bg: "#F7F2F7"
+    },
+    {
+      id: 1,
+      img: product4,
+      title: "Classic Vanilla Ice Cream",
+      desc: "Creamy vanilla ice cream topped with cherry.",
+      price: 4.99,
+      bg: "#F7F2F7"
+    },
+  ];
+
+
   return (
     <div>
       <div className="flex justify-center bg-amber-50">
@@ -87,6 +138,59 @@ export default function Home() {
         <img src="src/imgs/yarimaylana.png" className=" absolute right-0" alt="" />
       </div>
 
+
+      {/* cart sections */}
+      <div class="w-full h-[80vh] flex items-center justify-center bg-[linear-gradient(301.26deg,#EFD7EF_8%,#F5F9FC_43%,#F8EAE1_64%,#EAF8F9_87%)]">
+        <div className="flex flex-col gap-3">
+          <h1 className="text-5xl font-bold text-center">Our <span className="text-[#F83D8E]">Classic</span>  Favorites</h1>
+          <p className="text-sm text-[#646464] text-center">Check out our top products that our customers love.</p>
+
+          {/* card  */}
+          <div className="w-full grid grid-cols-4 gap-5 mt-10">
+
+            {products.map((i) => (
+              <div className="relative w-72 bg-white rounded-2xl shadow-md p-4">
+                <div className="bg-[#F7F2F7] rounded-lg py-5">
+                  <button className="absolute top-5 left-5 text-gray-500 hover:text-pink-500 bg-white p-2 rounded-full">
+                    <Heart size={20} />
+                  </button>
+
+                  <img
+                    src={i.img}
+                    alt="Classic Vanilla Ice Cream"
+                    className="w-full h-45 object-contain mx-auto  rounded-lg"
+                  />
+                </div>
+
+                <div className="flex justify-between">
+                  <h3 className="font-bold text-xl mt-4 max-w-40">{i.title}</h3>
+
+                  <div className="flex items-center gap-1 text-sm text-gray-600 mt-1">
+                    <Star size={16} className="text-yellow-500 fill-yellow-500" />
+                    <span>4.9/5</span>
+                  </div>
+                </div>
+
+                <p className="text-gray-500 text-sm mt-2">
+                  {i.desc}
+                </p>
+
+                <div className="flex justify-between items-center mt-4">
+                  <p className="text-pink-600 font-bold text-lg">${i.price}</p>
+                  <button className="p-3 rounded-full bg-[#683292] text-white hover:bg-pink-600 cursor-pointer">
+                    <ShoppingCart size={18} />
+                  </button>
+                </div>
+              </div>
+            ))}
+
+          </div>
+        </div>
+      </div>
+
+
+
+
       <section className="py-12 bg-white text-center">
         <h2 className="text-3xl font-bold mb-2">
           Explore Our <span className="text-pink-500">Categories</span>
@@ -117,6 +221,6 @@ export default function Home() {
         </div>
       </section>
     </div>
-    
+
   );
 }
