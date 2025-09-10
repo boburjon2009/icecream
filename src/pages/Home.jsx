@@ -1,9 +1,6 @@
 import { ArrowRight, Star, Heart, ShoppingCart } from "lucide-react";
 
-// swipper
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
+
 
 // product images
 import product1 from '../imgs/prodect-1.png'
@@ -11,7 +8,6 @@ import product2 from '../imgs/prodect-2.png'
 import product3 from '../imgs/prodect-3.png'
 import product4 from '../imgs/prodect-4.png'
 
-import { Pagination } from "swiper/modules";
 
 const categories = [
   {

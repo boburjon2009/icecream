@@ -41,7 +41,7 @@ export default function Header() {
           <button className="relative">
             <ShoppingCart size={22} className="text-gray-600 hover:text-pink-500 transition" />
             <span className="absolute -top-2 -right-2 bg-pink-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
-              2
+              0
             </span>
           </button>
 

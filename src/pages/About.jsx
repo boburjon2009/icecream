@@ -1,5 +1,6 @@
-import { MoveLeft, MoveRight } from "lucide-react";
+import { Divide, Facebook, Instagram, MoveLeft, MoveRight, Youtube } from "lucide-react";
 import { ArrowRight } from "lucide-react";
+
 
 export default function AboutHeader() {
   return (
@@ -49,7 +50,7 @@ export default function AboutHeader() {
         <div className="w-[75%]  flex justify-end">
           <div className="m-auto items-center">
             <img src="src/imgs/mission-triangle.png.png" className="absolute left-[10%] mt-[3%]" alt="" />
-            <img src="src/imgs/mission-cross.png.png"className="absolute left-[8%] mt-[11%]" alt="" />
+            <img src="src/imgs/mission-cross.png.png" className="absolute left-[8%] mt-[11%]" alt="" />
             <h1 className="text-5xl w-[50%] text-white mb-[5%]">Our Mission is to
               Create Moments</h1>
             <p className="text-white w-[50%]  mb-[5%]">
@@ -58,7 +59,7 @@ export default function AboutHeader() {
               make lasting memories. Our commitment extends beyond
               serving great ice cream.</p>
             <button className="bg-[#F83D8E] rounded-full flex gap-6 p-3 items-center text-white">Read More <ArrowRight size={15} /></button>
-          <img src="src/imgs/mission-wave.png.png" className="absolute right-[30%] mt-[-3%]" alt="" />    
+            <img src="src/imgs/mission-wave.png.png" className="absolute right-[30%] mt-[-3%]" alt="" />
           </div>
           <div>
             <img src="src/imgs/girls-icecream.png" alt="" />
@@ -66,30 +67,68 @@ export default function AboutHeader() {
         </div>
       </div>
 
-    
 
-    <div className="">
-      <div>
-        <h1>Our Statistics</h1>
-        <p>What makes us special through our impressive statistics.</p>
+
+      <div className=" mt-[5%] mb-[5%]" >
+        <div className=" flex flex-col items-center  justify-center">
+          <h1 className="text-5xl mb-2" >Our <span className=" text-[#F83D8E]">Statistics</span></h1>
+          <p>What makes us special through our impressive statistics.</p>
+        </div>
+        <div className="w-[50%]  flex m-auto justify-between mt-[3%]" >
+          <div className="bg-white p-4 rounded-2xl  border-b-2 border-[#F83D8E]" >
+            <h1 className="text-5xl flex font-bold justify-center">91<span className="text-[60%] text-[#F83D8E]">+</span></h1>
+            <p className="text-[#646464]">Awards Win</p>
+          </div>
+          <div className="bg-white p-4 rounded-2xl border-b-2 border-[#F83D8E]" >
+            <h1 className="text-5xl flex font-bold justify-center">95<span className="text-[60%] text-[#F83D8E]">%</span></h1>
+            <p className="text-[#646464]">Satisified Clients </p>
+          </div>
+          <div className="bg-white p-4 rounded-2xl  border-b-2 border-[#F83D8E]" >
+            <h1 className="text-5xl flex font-bold justify-center ">48<span className="text-[60%] text-[#F83D8E]">+</span></h1>
+            <p className="text-[#646464]">Years of Experience</p>
+          </div>
+          <div className="bg-white p-4 rounded-2xl border-b-2 border-[#F83D8E]" >
+            <h1 className="text-5xl flex font-bold justify-center">143<span className="text-[60%] text-[#F83D8E]">+</span></h1>
+            <p className="text-[#646464]">Employees Working</p>
+          </div>
+        </div>
       </div>
-      <div>
-        <h1>91+</h1>
-        <p>Awards Win</p>
+      <div className="w-[100%]  bg-amber-50">
+            <div>
+              <h1>Our <span>Team</span> Members</h1>
+              <p>Get to know the friendly faces behind your favorite flavors.</p>
+            </div>
+        =
+        <div className="w-[100%] bg-amber-900 flex m-auto  ">
+          <div className="flex m-auto justify-between ">
+            <div>
+              <img src="src/imgs/110.png" alt="" />
+              <h1>Marvin Joner</h1>
+              <p>Bakery Worker</p>
+              <Facebook />
+              <Instagram />
+              <Youtube />
+            </div>
+            <div>
+              <img src="src/imgs/110.png" alt="" />
+              <h1>Marvin Joner</h1>
+              <p>Bakery Worker</p>
+              <Facebook />
+              <Instagram />
+              <Youtube />
+            </div>
+            <div>
+              <img src="src/imgs/110.png" alt="" />
+              <h1>Marvin Joner</h1>
+              <p>Bakery Worker</p>
+              <Facebook />
+              <Instagram />
+              <Youtube />
+            </div>
+          </div>
+        </div>
+        =
       </div>
-       <div>
-        <h1>91+</h1>
-        <p>Awards Win</p>
-      </div>
-       <div>
-        <h1>91+</h1>
-        <p>Awards Win</p>
-      </div>
-       <div>
-        <h1>91+</h1>
-        <p>Awards Win</p>
-      </div>
-    </div>
     </div>
   );
 }
