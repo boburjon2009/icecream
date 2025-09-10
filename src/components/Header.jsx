@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <header className="bg-white  sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+      <div className="w-[71%] mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
         <div className="flex items-center gap-2">
           <img src="src/imgs/Group 1 (1).png" alt="Logo" className="h-10 w-auto" />
