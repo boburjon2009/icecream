@@ -38,23 +38,15 @@ export default function Header() {
             <Search size={20} />
           </button>
 
-<<<<<<< HEAD
-          <button className="relative">
-            <ShoppingCart size={22} className="text-gray-600 hover:text-pink-500 transition" />
-            <span className="absolute -top-2 -right-2 bg-pink-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
-              0
-            </span>
-          </button>
-=======
+     
           <Link to={'shoppingcart'}>
             <button className="relative">
               <ShoppingCart size={22} className="text-gray-600 hover:text-pink-500 transition" />
               <span className="absolute -top-2 -right-2 bg-pink-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
-                2
+                0
               </span>
             </button>
           </Link>
->>>>>>> 574301e (functions)
 
           <button className="hidden md:block px-5 py-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-md hover:opacity-90 transition">
             Contact Us
