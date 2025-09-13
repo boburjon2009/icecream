@@ -1,11 +1,11 @@
 import { Search, ShoppingCart } from "lucide-react";
-
-// react router dom 
 import { Link } from "react-router-dom";
-
+import { useState } from "react";
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <header className="bg-white  sticky top-0 z-50">
+    <header className="bg-white sticky top-0 z-50 shadow">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
         <Link to={'/'}>
@@ -22,14 +22,84 @@ export default function Header() {
           <Link to={'/about'}>
             <p className="hover:text-pink-500 transition">About Us</p>
           </Link>
-          <Link to={'/pages'}>
-            <p className="hover:text-pink-500 transition">Pages</p>
-          </Link>
+
+          {/* Pages dropdown */}
+          <div className="relative">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="hover:text-pink-500 transition cursor-pointer"
+            >
+              Pages
+            </button>
+
+            {isOpen && (
+              <div className="absolute bg-white shadow-lg rounded-md mt-2 w-32">
+                <Link
+                  to={'/Ourteam'}
+                  className="block px-4 py-2 hover:bg-pink-50"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Our Team
+                </Link>
+                <Link
+                  to={'/Review'}
+                  className="block px-4 py-2 hover:bg-pink-50"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Review
+                </Link>
+                <Link
+                  to={'/ShopPage'}
+                  className="block px-4 py-2 hover:bg-pink-50"
+                  onClick={() => setIsOpen(false)}
+                >
+                  shopingcard
+                </Link>
+                 <Link
+                  to={'/Checkout'}
+                  className="block px-4 py-2 hover:bg-pink-50"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Checkout
+                </Link> <Link
+                  to={'/ShopPage'}
+                  className="block px-4 py-2 hover:bg-pink-50"
+                  onClick={() => setIsOpen(false)}
+                >
+                  shopingcard
+                </Link>
+                <Link
+                  to={'/Offers'}
+                  className="block px-4 py-2 hover:bg-pink-50"
+                  onClick={() => setIsOpen(false)}
+                >special offers</Link>
+                 <Link
+                  to={'/Checkout'}
+                  className="block px-4 py-2 hover:bg-pink-50"
+                  onClick={() => setIsOpen(false)}
+                ></Link> <Link
+                  to={'/Product'}
+                  className="block px-4 py-2 hover:bg-pink-50"
+                  onClick={() => setIsOpen(false)}
+                >Product</Link> <Link
+                  to={'/Checkout'}
+                  className="block px-4 py-2 hover:bg-pink-50"
+                  onClick={() => setIsOpen(false)}
+                ></Link> <Link
+                  to={'/Checkout'}
+                  className="block px-4 py-2 hover:bg-pink-50"
+                  onClick={() => setIsOpen(false)}
+                ></Link>
+              </div>
+            )}
+          </div>
+
           <Link to={'/blog'}>
             <p className="hover:text-pink-500 transition">Blog</p>
           </Link>
-          <Link to={'/faqs'}></Link>
-          <p className="hover:text-pink-500 transition">FAQ's</p>
+          <Link to={'/faqs'}>
+            <p className="hover:text-pink-500 transition">FAQ's</p>
+          </Link>
         </nav>
 
         {/* Actions */}
@@ -38,8 +108,7 @@ export default function Header() {
             <Search size={20} />
           </button>
 
-     
-          <Link to={'shoppingcart'}>
+          <Link to={'/shoppingcart'}>
             <button className="relative">
               <ShoppingCart size={22} className="text-gray-600 hover:text-pink-500 transition" />
               <span className="absolute -top-2 -right-2 bg-pink-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
