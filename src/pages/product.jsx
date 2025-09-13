@@ -10,10 +10,10 @@ const product = {
   description:
     "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.",
   images: [
-    "https://i.ibb.co/fSPvjqn/vanilla1.png",
-    "https://i.ibb.co/qNcsS4L/vanilla2.png",
-    "https://i.ibb.co/Yk90F6P/vanilla3.png",
-    "https://i.ibb.co/QQvcL5y/vanilla4.png",
+    "src/imgs/169.png",
+    "src/imgs/22.png",
+    "src/imgs/23.png",
+    "src/imgs/24.png",
   ],
   colors: ["#fefefe", "#f28b82", "#a7c7e7"],
   sizes: ["S", "M", "L"],
@@ -25,7 +25,7 @@ const relatedProducts = [
     name: "Strawberry Sundae",
     description: "Strawberry ice cream with fresh strawberries",
     price: 5.99,
-    image: "https://i.ibb.co/2St6cPH/strawberry.png",
+    image: "src/imgs/41.png",
     rating: 4.8,
   },
   {
@@ -33,7 +33,7 @@ const relatedProducts = [
     name: "Chocolate Chip Cookie Cone",
     description: "Chocolate chip cookie dough ice cream in a cone",
     price: 4.49,
-    image: "https://i.ibb.co/RyzQkNw/choco-cone.png",
+    image: "src/imgs/isecream.png",
     rating: 4.9,
   },
   {
@@ -41,7 +41,7 @@ const relatedProducts = [
     name: "Rocky Road Sundae",
     description: "Marshmallow and nutty rocky road ice cream",
     price: 5.69,
-    image: "https://i.ibb.co/VmG9G1L/rocky.png",
+    image: "src/imgs/icecream2.png",
     rating: 4.7,
   },
   {
@@ -49,7 +49,7 @@ const relatedProducts = [
     name: "Peach Melba Sundae",
     description: "Peach ice cream topped with raspberry sauce",
     price: 5.39,
-    image: "https://i.ibb.co/rdg3mhq/peach.png",
+    image: "src/imgs/icecreaqm3.png",
     rating: 4.6,
   },
 ];
@@ -77,7 +77,7 @@ export default function Product() {
         {/* LEFT IMAGE SECTION */}
         <div className=" flex gap-7">
      
-          <div className="flex gap-3 grid justify-center">
+          <div className=" gap-3 grid justify-center">
             {product.images.map((img, i) => (
               <img
                 key={i}
@@ -93,7 +93,7 @@ export default function Product() {
                <img
             src={mainImage}
             alt="main"
-            className="rounded-xl  shadow-lg w-full  object-contain mb-4"
+            className="rounded-xl  shadow-lg   object-contain mb-4"
           />
         </div>
 
@@ -128,8 +128,8 @@ export default function Product() {
             </div>
           </div>
 
-          {/* SIZES */}
-          <div className="mb-4">
+          {/* SIZES */} 
+          <div className="mb-4 ">
             <p className="font-semibold">Size:</p>
             <div className="flex gap-3 mt-2">
               {product.sizes.map((s, i) => (
@@ -149,7 +149,7 @@ export default function Product() {
           </div>
 
           {/* QUANTITY */}
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-3 bg- mb-4">
             <button
               className="px-3 py-1 bg-gray-200 rounded"
               onClick={() => setQty(qty > 1 ? qty - 1 : 1)}
@@ -181,7 +181,7 @@ export default function Product() {
       </div>
 
       {/* TABS */}
-      <div className="mt-12">
+      <div className="mt-12 bg-">
         <div className="flex gap-6 border-b">
           <button
             className={`pb-2 ${
@@ -231,7 +231,7 @@ export default function Product() {
       </div>
 
       {/* RELATED PRODUCTS */}
-      <div className="mt-16">
+      <div className="mt-16 w-[70%] m-auto">
         <h2 className="text-2xl font-bold mb-6 text-center">
           Related <span className="text-pink-500">Products</span>
         </h2>
