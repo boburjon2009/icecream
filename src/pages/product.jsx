@@ -73,27 +73,28 @@ export default function Product() {
 
   return (
     <div className="p-6 md:p-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ">
         {/* LEFT IMAGE SECTION */}
-        <div>
-          <img
-            src={mainImage}
-            alt="main"
-            className="rounded-xl shadow-lg w-full h-[400px] object-contain mb-4"
-          />
-          <div className="flex gap-3 justify-center">
+        <div className=" flex gap-7">
+     
+          <div className="flex gap-3 grid justify-center">
             {product.images.map((img, i) => (
               <img
                 key={i}
                 src={img}
                 alt="thumb"
-                className={`w-20 h-20 border rounded-lg cursor-pointer object-contain ${
+                className={`w-20 h-20 border rounded-lg cursor-pointer object-contain  ${
                   img === mainImage ? "border-pink-500" : "border-gray-200"
                 }`}
                 onClick={() => setMainImage(img)}
               />
             ))}
           </div>
+               <img
+            src={mainImage}
+            alt="main"
+            className="rounded-xl  shadow-lg w-full  object-contain mb-4"
+          />
         </div>
 
         {/* RIGHT INFO SECTION */}
