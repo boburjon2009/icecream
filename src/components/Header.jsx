@@ -1,8 +1,11 @@
 import { Search, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../context/CartContext";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { cart } = useContext(CartContext)
 
   return (
     <header className="bg-white sticky top-0 z-50 shadow">
@@ -55,7 +58,7 @@ export default function Header() {
                 >
                   shopingcard
                 </Link>
-                 <Link
+                <Link
                   to={'/Checkout'}
                   className="block px-4 py-2 hover:bg-pink-50"
                   onClick={() => setIsOpen(false)}
@@ -73,7 +76,7 @@ export default function Header() {
                   className="block px-4 py-2 hover:bg-pink-50"
                   onClick={() => setIsOpen(false)}
                 >special offers</Link>
-                 <Link
+                <Link
                   to={'/Checkout'}
                   className="block px-4 py-2 hover:bg-pink-50"
                   onClick={() => setIsOpen(false)}
@@ -111,9 +114,11 @@ export default function Header() {
           <Link to={'/shoppingcart'}>
             <button className="relative">
               <ShoppingCart size={22} className="text-gray-600 hover:text-pink-500 transition" />
-              <span className="absolute -top-2 -right-2 bg-pink-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
-                0
-              </span>
+              {cart && (
+                <span className="absolute -top-2 -right-2 bg-pink-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
+                  {cart.length}
+                </span>
+              )}
             </button>
           </Link>
 

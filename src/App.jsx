@@ -7,11 +7,11 @@ import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import CartProvider from "./context/CartContext";
 import  ShoppingCart from "./pages/ShoppingCart";
-import Ourteam from "./pages/ourteam";
-import Review from "./pages/review";
+import Ourteam from "./pages/Ourteam";
+import Review from "./pages/Review";
 import ShopPage from "./pages/SHop-layoute";
 import Checkout from "./pages/CHecout";
-import Offers from "./pages/offers";
+import Offers from "./pages/Offers";
 import { Rewind } from "lucide-react";
 import Product from "./pages/product";
 
