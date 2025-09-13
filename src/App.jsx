@@ -12,7 +12,6 @@ import Review from "./pages/Review";
 import ShopPage from "./pages/SHop-layoute";
 import Checkout from "./pages/CHecout";
 import Offers from "./pages/Offers";
-import { Rewind } from "lucide-react";
 import Product from "./pages/product";
 
 
