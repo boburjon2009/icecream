@@ -1,8 +1,12 @@
 import { Search, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../context/CartContext";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenn, setIsOpenn] = useState(false);
+
+  const { cart } = useContext(CartContext)
 
   return (
     <header className="bg-white sticky top-0 z-50 shadow">
@@ -55,7 +59,7 @@ export default function Header() {
                 >
                   shopingcard
                 </Link>
-                 <Link
+                <Link
                   to={'/Checkout'}
                   className="block px-4 py-2 hover:bg-pink-50"
                   onClick={() => setIsOpen(false)}
@@ -73,31 +77,56 @@ export default function Header() {
                   className="block px-4 py-2 hover:bg-pink-50"
                   onClick={() => setIsOpen(false)}
                 >special offers</Link>
-                 <Link
-                  to={'/Checkout'}
-                  className="block px-4 py-2 hover:bg-pink-50"
-                  onClick={() => setIsOpen(false)}
-                ></Link> <Link
+              <Link
                   to={'/Product'}
                   className="block px-4 py-2 hover:bg-pink-50"
                   onClick={() => setIsOpen(false)}
-                >Product</Link> <Link
-                  to={'/Checkout'}
+                >Product</Link>  <Link
+                  to={'/TermsAndConditions'}
                   className="block px-4 py-2 hover:bg-pink-50"
                   onClick={() => setIsOpen(false)}
-                ></Link> <Link
-                  to={'/Checkout'}
+                >TermsAndCond</Link>
+                 <Link
+                  to={'/ThankYou'}
                   className="block px-4 py-2 hover:bg-pink-50"
                   onClick={() => setIsOpen(false)}
-                ></Link>
+                >ThankYou</Link>
+                 <Link
+                  to={'/TermsAndConditions'}
+                  className="block px-4 py-2 hover:bg-pink-50"
+                  onClick={() => setIsOpen(false)}
+                >TermsAndCond</Link>
               </div>
             )}
           </div>
 
-          <Link to={'/blog'}>
-            <p className="hover:text-pink-500 transition">Blog</p>
-          </Link>
-          <Link to={'/faqs'}>
+           <div className="ralavives">
+            <button
+              onClick={() => setIsOpenn(!isOpenn)}
+              className="hover:text-pink-500 transition cursor-pointer"
+            >
+              shop 
+            </button>
+
+            {isOpenn && (
+              <div className="absolute bg-white shadow-lg rounded-md mt-2 w-32">
+                <Link
+                  to={'/Blog'}
+                  className="block px-4 py-2 hover:bg-pink-50"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Blog
+                </Link>
+                    <Link
+                  to={'/Loadmore'}
+                  className="block px-4 py-2 hover:bg-pink-50"
+                  onClick={() => setIsOpen(false)}
+                >load-more</Link>
+                
+              </div>
+            )}
+          </div>
+          <Link to={'/faq'}>
             <p className="hover:text-pink-500 transition">FAQ's</p>
           </Link>
         </nav>
@@ -111,15 +140,18 @@ export default function Header() {
           <Link to={'/shoppingcart'}>
             <button className="relative">
               <ShoppingCart size={22} className="text-gray-600 hover:text-pink-500 transition" />
-              <span className="absolute -top-2 -right-2 bg-pink-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
-                0
-              </span>
+              {cart && (
+                <span className="absolute -top-2 -right-2 bg-pink-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
+                  {cart.length}
+                </span>
+              )}
             </button>
           </Link>
-
+  <Link to={'/Contact'}>
           <button className="hidden md:block px-5 py-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 text-white shadow-md hover:opacity-90 transition">
             Contact Us
           </button>
+          </Link>
         </div>
       </div>
     </header>

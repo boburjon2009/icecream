@@ -25,11 +25,11 @@ export default function Cart() {
                 <div className="flex items-center gap-5">
                   <img
                     src={item.img}
-                    alt={item.title}
+                    alt={item.name}
                     className="w-24 h-24 object-cover rounded-lg border"
                   />
                   <div>
-                    <h2 className="font-semibold text-lg">{item.title}</h2>
+                    <h2 className="font-semibold text-lg">{item.name}</h2>
                     <p className="text-gray-500 text-sm">{item.desc}</p>
                   </div>
                 </div>

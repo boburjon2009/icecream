@@ -1,5 +1,6 @@
 import { Divide, Facebook, Instagram, MoveLeft, MoveRight, Youtube } from "lucide-react";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 
 export default function AboutHeader() {
@@ -38,7 +39,15 @@ export default function AboutHeader() {
               dairy-free, vegan, and gluten-free choices, so everyone can find
               their perfect scoop.
             </p>
-            <button className="bg-[#F83D8E] rounded-full flex gap-6 p-3 items-center text-white">Read More <ArrowRight size={15} /></button>
+          <Link
+                  to={'/Onecolumn'}
+                  className="block px-4 py-2 hover:bg-pink-50"
+                  onClick={() => setIsOpen(false)}
+                >
+             <button className="bg-[#F83D8E] rounded-full flex gap-6 p-3 items-center text-white">Read More <ArrowRight size={15} /></button>
+
+                </Link>
+            
           </div>
           <img className="absolute right-0" src="src/imgs/right-icecream.png" alt="" />
         </div>
@@ -94,7 +103,7 @@ export default function AboutHeader() {
         </div>
       </div>
       <div className="w-[100%]  bg-amber-50">
-            <div>
+            <div className="m-auto">
               <h1>Our <span>Team</span> Members</h1>
               <p>Get to know the friendly faces behind your favorite flavors.</p>
             </div>
