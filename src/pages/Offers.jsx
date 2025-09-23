@@ -82,7 +82,7 @@ export default function Offers() {
   const currentProducts = products.slice(startIndex, startIndex + itemsPerPage);
 
   return (
-    <section className="py-12 px-6 text-center bg-amber-300 w-[90%] m-auto rounded-xl">
+    <section className="py-12 px-6 text-center  w-[90%] m-auto rounded-xl">
       <h2 className="text-3xl font-bold mb-2 ">
         Upto <span className="text-pink-500">30%</span> Discount
       </h2>
@@ -95,8 +95,7 @@ export default function Offers() {
         {currentProducts.map((product) => (
           <div
             key={product.id}
-            // ✅ faqat rasmni yuboryapmiz
-            onClick={() => navigate(`/product/${product.id}`, { state: { image: product.image } })}
+            onClick={() => navigate(`/product/${product.id}`, { state: product })}
             className="bg-white rounded-2xl shadow-md p-4 relative hover:shadow-xl transition cursor-pointer"
           >
             <span className="absolute top-4 right-4 bg-pink-500 text-white text-xs px-2 py-1 rounded-full">

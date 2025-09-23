@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
   const { cart } = useContext(CartContext);
@@ -56,9 +57,16 @@ export default function Cart() {
               <span>Total</span>
               <span className="text-pink-600">${total.toFixed(2)}</span>
             </div>
-            <button className="w-full mt-6 bg-gradient-to-r from-pink-500 to-purple-500 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition">
+            <Link
+                  to={'/Checkout'}
+                  className="block px-4 py-2 hover:bg-pink-50"
+                  onClick={() => setIsOpen(false)}
+                >
+                <button className="w-full mt-6 bg-gradient-to-r from-pink-500 to-purple-500 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition">
               Proceed to Checkout
             </button>
+                </Link> 
+            
           </div>
         </div>
       )}
