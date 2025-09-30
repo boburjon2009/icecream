@@ -1,12 +1,12 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
 import MainLayout from "./layout/mainlayoute";
 
-// sahifalarni import qilish kerak
+// sahifalarni import qilish
 import Home from "./pages/Home";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import CartProvider from "./context/CartContext";
-import  ShoppingCart from "./pages/ShoppingCart";
+import ShoppingCart from "./pages/ShoppingCart";   // ✅ qo‘shilgan
 import Ourteam from "./pages/Ourteam";
 import Review from "./pages/review";
 import ShopPage from "./pages/SHop-layoute";
@@ -22,45 +22,44 @@ import BlogSingle from "./pages/singleblog";
 import Loadmore from "./pages/load-more";
 import Onecolumn from "./pages/One-column";
 import Faq from "./pages/Faqs";
+import CardsPage from "./components/CardsPage";   // ✅ qo‘shilgan
 import Contact from "./pages/Contactus";
-
 
 export default function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
+        {/* ✅ Bitta Header faqat shu yerda */}
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="ourteam" element={<Ourteam />} />
-          <Route path="Review" element={<Review />} />
-          <Route path="SHopPage" element={<ShopPage />} />
-                 <Route path="/checkout" element={<Checkout />} /> {/* ✅ */}
-          <Route path="Offers" element={<Offers />} />
-          <Route path="ThankYou" element={<ThankYou />} />
+          <Route path="review" element={<Review />} />
+          <Route path="ShopPage" element={<ShopPage />} />
+          <Route path="checkout" element={<Checkout />} />
+          <Route path="offers" element={<Offers />} />
+          <Route path="thankyou" element={<ThankYou />} />
           <Route path="blog" element={<Blog />} />
-          <Route path="Loadmore" element={<Loadmore />} />
-          <Route path="Onecolumn" element={<Onecolumn />} />
+          <Route path="loadmore" element={<Loadmore />} />
+          <Route path="onecolumn" element={<Onecolumn />} />
           <Route path="faq" element={<Faq />} />
-          <Route path="Contact" element={<Contact />} />
-          <Route path="Columnsidebar" element={<Columnsidebar />} />
-          <Route path="BlogSingle" element={<BlogSingle />} />
-          <Route path="TermsAndConditions" element={<TermsAndConditions/>} />
-          <Route path="PrivacyPolicy" element={<PrivacyPolicy />} />
-          <Route path="/product/:id" element={<Product />} /> 
-          <Route path="shoppingcart" element={<ShoppingCart />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="columnsidebar" element={<Columnsidebar />} />
+          <Route path="blogsingle" element={<BlogSingle />} />
+          <Route path="termsandconditions" element={<TermsAndConditions/>} />
+          <Route path="privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="shoppingcart" element={<ShoppingCart />} />   {/* ✅ savatcha sahifa */}
+          <Route path="cardpage" element={<CardsPage />} />         {/* ✅ CardsPage sahifa */}
         </Route>
+
         <Route path="*" element={<NotFound />} />
       </Route>
     )
   )
 
   return (
-    <>
-      <CartProvider>
-        <RouterProvider router={router} />
-      </CartProvider>
-    </>
+    <CartProvider>
+      <RouterProvider router={router} />
+    </CartProvider>
   )
 }
-
