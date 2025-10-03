@@ -4,37 +4,15 @@ import { CartContext } from "../context/CartContext";
 import { X, Minus, Plus, ArrowLeft, ArrowRight } from "lucide-react";
 
 export default function Cart() {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart, updateQty, removeFromCart } = useContext(CartContext);
   const [coupon, setCoupon] = useState("");
   const [discount, setDiscount] = useState(0);
 
-  // miqdorni oshirish/kamaytirish
-  const updateQty = (id, action) => {
-    setCart((prev) =>
-      prev.map((item) => {
-        if (item.id === id) {
-          return {
-            ...item,
-            qty:
-              action === "inc"
-                ? item.qty + 1
-                : item.qty > 1
-                ? item.qty - 1
-                : 1,
-          };
-        }
-        return item;
-      })
-    );
-  };
-
-  // o‘chirish
-  const removeItem = (id) => {
-    setCart((prev) => prev.filter((item) => item.id !== id));
-  };
-
-  // hisoblash
-  const subTotal = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
+  // hisoblash (NaN bo‘lmasligi uchun Number(...))
+  const subTotal = cart.reduce(
+    (acc, item) => acc + (Number(item?.price) || 0) * (Number(item?.qty) || 1),
+    0
+  );
   const shipping = cart.length > 0 ? 20 : 0;
   const grandTotal = (subTotal - discount + shipping).toFixed(2);
 
@@ -52,7 +30,8 @@ export default function Cart() {
       {/* chap tomon */}
       <div className="flex-1 bg-white rounded-xl shadow p-6">
         <h2 className="text-lg font-semibold mb-4">
-          Shopping Cart <span className="text-gray-500">({cart.length} Items)</span>
+          Shopping Cart{" "}
+          <span className="text-gray-500">({cart.length} Items)</span>
         </h2>
         <div className="divide-y">
           {cart.map((item) => (
@@ -69,15 +48,23 @@ export default function Cart() {
                 <div>
                   <h3 className="font-semibold">{item.name}</h3>
                   <p className="text-sm text-gray-600">
-                    Color: <span className="font-medium">{item.color}</span>
+                    Color:{" "}
+                    <span className="font-medium">{item?.color || "-"}</span>
                   </p>
                   <p className="text-sm text-gray-600">
-                    Size: <span className="font-medium">{item.size}</span>
+                    Size:{" "}
+                    <span className="font-medium">{item?.size || "-"}</span>
                   </p>
                 </div>
               </div>
+
               <div className="flex items-center gap-10">
-                <p className="text-pink-500 font-semibold">{item.price.toFixed(2)}$</p>
+                {/* narx */}
+                <p className="text-pink-500 font-semibold">
+                  {(Number(item?.price) || 0).toFixed(2)} $
+                </p>
+
+                {/* qty boshqarish */}
                 <div className="flex items-center border rounded-full">
                   <button
                     onClick={() => updateQty(item.id, "dec")}
@@ -85,7 +72,9 @@ export default function Cart() {
                   >
                     <Minus size={16} />
                   </button>
-                  <span className="px-4">{item.qty}</span>
+
+                  <span className="px-4">{Number(item?.qty) || 1}</span>
+
                   <button
                     onClick={() => updateQty(item.id, "inc")}
                     className="px-3 py-1"
@@ -93,11 +82,18 @@ export default function Cart() {
                     <Plus size={16} />
                   </button>
                 </div>
+
+                {/* umumiy narx */}
                 <p className="font-semibold">
-                  {(item.price * item.qty).toFixed(2)}
+                  {(
+                    (Number(item?.price) || 0) * (Number(item?.qty) || 1)
+                  ).toFixed(2)}{" "}
+                  $
                 </p>
+
+                {/* o‘chirish */}
                 <button
-                  onClick={() => removeItem(item.id)}
+                  onClick={() => removeFromCart(item.id)}
                   className="text-red-500"
                 >
                   <X />

@@ -1,72 +1,89 @@
-import { ArrowRight, Star,MapPin, Heart,MailOpen, ShoppingCart,PhoneCall, Locate, Facebook, Instagram } from "lucide-react";
-export default function Footer(){
-    return(
-        <div className="bg-[#683292]  p-9">
+import { MapPin, MailOpen, PhoneCall, Facebook, Instagram } from "lucide-react";
 
-      <div className="w-[100%]  flex justify-center ">
-        <div className="w-[70%]  flex justify-between items-center py-9">
-        <div>
-            <img src="src/imgs/Group 1 (1).png" alt="" />
-        </div>
-          <div className="flex">
-        <div>
-<h1 className="text-2xl  text-[#CFB6E2] mb-4">Navigation</h1>
-           <div className="flex gap-15 text-[#CFB6E2]">
-            <div>
-             <p>Home</p>
-            <p>Home</p>
-            <p>Home</p>
-           </div>
-            <div>
-              <p>Home</p>
-            <p>Home</p>
-            <p>Home</p>
-            </div>
-           </div>
-        </div>
+export default function Footer() {
+  return (
+    <div className="bg-[#683292] p-9 relative">
+      <div className="w-full flex justify-center">
+        <div className="w-[90%] lg:w-[70%] flex flex-col lg:flex-row justify-between items-start lg:items-center gap-10 py-9">
+          {/* Logo */}
+          <div>
+            <img src="src/imgs/Group 1 (1).png" alt="Logo" className="w-32 sm:w-40" />
           </div>
-          <div className="flex flex-col gap-5" >
-            <div className="flex items-center  text-[#CFB6E2]">
-          <MapPin />
-         <div>
-           <h3>address</h3>
-          <p>121 King Street Melbourne, 3000,
-Australia</p>
-         </div>
-        
-            </div >
-             <div className="flex items-center  text-[#CFB6E2]">
-              <MailOpen />
-          <div><h3>address</h3>
-          <p>121 King Street Melbourne, 3000,
-Australia</p></div>
-          
-            </div>
-        
 
-          </div>
-            <div  className="flex flex-col gap-5 text-[#CFB6E2]" >
-              <div className="flex items-center "> 
-                <PhoneCall />
+          {/* Navigation */}
+          <div className="flex flex-col sm:flex-row gap-8">
+            <div>
+              <h1 className="text-xl sm:text-2xl text-[#CFB6E2] mb-4">Navigation</h1>
+              <div className="flex gap-10 text-[#CFB6E2] text-sm sm:text-base">
                 <div>
-                  <h3>+123456780123</h3>
-                <p>Got Questions? Call us 24/7</p>
+                  <p>Home</p>
+                  <p>About</p>
+                  <p>Shop</p>
                 </div>
+                <div>
+                  <p>Blog</p>
+                  <p>Contact</p>
+                  <p>FAQ</p>
                 </div>
-                <div className="flex">
-                  <Instagram className=" mx-2 flex items-center"/>
-                  <div className="w-[30px] h-[30px] bg-[#FFFFFF1A] rounded-full mx-2 flex items-center"></div>
-                  <Facebook/>
-                </div>
+              </div>
             </div>
+          </div>
+
+          {/* Address & Mail */}
+          <div className="flex flex-col gap-5 text-[#CFB6E2] text-sm sm:text-base">
+            <div className="flex items-start gap-3">
+              <MapPin />
+              <div>
+                <h3 className="font-semibold">Address</h3>
+                <p>121 King Street Melbourne, 3000, Australia</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <MailOpen />
+              <div>
+                <h3 className="font-semibold">Email</h3>
+                <p>info@example.com</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact & Social */}
+          <div className="flex flex-col gap-5 text-[#CFB6E2]">
+            <div className="flex items-start gap-3">
+              <PhoneCall />
+              <div>
+                <h3 className="font-semibold">+123456780123</h3>
+                <p>Got Questions? Call us 24/7</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="w-8 h-8 bg-[#FFFFFF1A] rounded-full flex items-center justify-center">
+                <Instagram size={18} />
+              </div>
+              <div className="w-8 h-8 bg-[#FFFFFF1A] rounded-full flex items-center justify-center">
+                <Facebook size={18} />
+              </div>
+            </div>
+          </div>
         </div>
-     <img src="src/imgs/977b0075aff18e92a704e7c5b3f4e5bb61216844.png" className="absolute left-0 w-50 " alt="" />
       </div>
-        <div className="w-[70%] h-[2px] bg-[#74737326] m-auto"></div>
-      <div>
-        <p className="flex justify-center text-[70%]">Copyright © 2024 BlackRise Themes Inc All rights reserved.</p>
-     
+
+      {/* Divider */}
+      <div className="w-[90%] lg:w-[70%] h-[2px] bg-[#74737326] m-auto"></div>
+
+      {/* Copy */}
+      <div className="mt-4">
+        <p className="flex justify-center text-xs sm:text-sm text-[#CFB6E2]">
+          Copyright © 2024 BlackRise Themes Inc. All rights reserved.
+        </p>
       </div>
-</div>
-    )
+
+      {/* Dekor rasm */}
+      <img
+        src="src/imgs/977b0075aff18e92a704e7c5b3f4e5bb61216844.png"
+        className="absolute left-0 bottom-0 w-32 sm:w-48 opacity-70"
+        alt=""
+      />
+    </div>
+  );
 }

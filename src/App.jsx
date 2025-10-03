@@ -8,11 +8,11 @@ import NotFound from "./pages/NotFound";
 import CartProvider from "./context/CartContext";
 import ShoppingCart from "./pages/ShoppingCart";   // ✅ qo‘shilgan
 import Ourteam from "./pages/Ourteam";
-import Review from "./pages/review";
+import Review from "./pages/Review";
 import ShopPage from "./pages/SHop-layoute";
 import Checkout from "./pages/CHecout";
 import Offers from "./pages/Offers";
-import Product from "./pages/product";
+import Product from "./pages/product";  // ✅ product sahifa
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import ThankYou from "./pages/ThankYou";
@@ -44,12 +44,16 @@ export default function App() {
           <Route path="onecolumn" element={<Onecolumn />} />
           <Route path="faq" element={<Faq />} />
           <Route path="contact" element={<Contact />} />
+
+          {/* ✅ Dinamik Product sahifa */}
+          <Route path="product/:id" element={<Product />} />
+
           <Route path="columnsidebar" element={<Columnsidebar />} />
           <Route path="blogsingle" element={<BlogSingle />} />
-          <Route path="termsandconditions" element={<TermsAndConditions/>} />
+          <Route path="termsandconditions" element={<TermsAndConditions />} />
           <Route path="privacypolicy" element={<PrivacyPolicy />} />
           <Route path="shoppingcart" element={<ShoppingCart />} />   {/* ✅ savatcha sahifa */}
-          <Route path="cardpage" element={<CardsPage />} />         {/* ✅ CardsPage sahifa */}
+          <Route path="cardpage" element={<CardsPage />} />          {/* ✅ CardsPage sahifa */}
         </Route>
 
         <Route path="*" element={<NotFound />} />

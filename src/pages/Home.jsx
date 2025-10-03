@@ -74,57 +74,61 @@ export default function Home() {
         </main>
       </div>
 
-      {/* Cart sections */}
-      <div className="w-full min-h-[80vh] flex items-center justify-center bg-[linear-gradient(301.26deg,#EFD7EF_8%,#F5F9FC_43%,#F8EAE1_64%,#EAF8F9_87%)]">
-        <div className="flex flex-col gap-3">
-          <h1 className="text-5xl font-bold text-center">
-            Our <span className="text-[#F83D8E]">Classic</span> Favorites
-          </h1>
-          <p className="text-sm text-[#646464] text-center">
-            Check out our top products that our customers love.
-          </p>
+   <div className="w-full min-h-[80vh] flex items-center justify-center bg-[linear-gradient(301.26deg,#EFD7EF_8%,#F5F9FC_43%,#F8EAE1_64%,#EAF8F9_87%)]">
+  <div className="flex flex-col gap-3 px-4">
+    <h1 className="text-3xl md:text-5xl font-bold text-center">
+      Our <span className="text-[#F83D8E]">Classic</span> Favorites
+    </h1>
+    <p className="text-sm text-[#646464] text-center max-w-xl mx-auto">
+      Check out our top products that our customers love.
+    </p>
 
-          <div className="w-full grid grid-cols-4 gap-5 mt-10">
-            {filteredProducts.map((i) => (
-              <div
-                key={i.id}
-                onClick={() => navigate(`/product/${i.id}`, { state: i })}
-                className="relative w-72 bg-white rounded-2xl shadow-md p-4 cursor-pointer"
-              >
-                <div className="bg-[#F7F2F7] rounded-lg py-5">
-                  <button className="absolute top-5 left-5 text-gray-500 hover:text-pink-500 bg-white p-2 rounded-full">
-                    <Heart size={20} />
-                  </button>
-                  <img src={i.img} alt={i.title} className="w-full h-45 object-contain mx-auto rounded-lg" />
-                </div>
+    {/* 📱 responsive grid */}
+    <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-10">
+      {filteredProducts.map((i) => (
+        <div
+          key={i.id}
+          onClick={() => navigate(`/product/${i.id}`, { state: i })}
+          className="relative w-full sm:w-72 bg-white rounded-2xl shadow-md p-4 cursor-pointer mx-auto"
+        >
+          <div className="bg-[#F7F2F7] rounded-lg py-5 relative">
+            <button className="absolute top-5 left-5 text-gray-500 hover:text-pink-500 bg-white p-2 rounded-full">
+              <Heart size={20} />
+            </button>
+            <img
+              src={i.img}
+              alt={i.title}
+              className="w-full h-40 md:h-45 object-contain mx-auto rounded-lg"
+            />
+          </div>
 
-                <div className="flex justify-between">
-                  <h3 className="font-bold text-xl mt-4 max-w-40">{i.title}</h3>
-                  <div className="flex items-center gap-1 text-sm text-gray-600 mt-1">
-                    <Star size={16} className="text-yellow-500 fill-yellow-500" />
-                    <span>4.9/5</span>
-                  </div>
-                </div>
+          <div className="flex justify-between">
+            <h3 className="font-bold text-lg md:text-xl mt-4 max-w-40">{i.title}</h3>
+            <div className="flex items-center gap-1 text-sm text-gray-600 mt-1">
+              <Star size={16} className="text-yellow-500 fill-yellow-500" />
+              <span>4.9/5</span>
+            </div>
+          </div>
 
-                <p className="text-gray-500 text-sm mt-2">{i.desc}</p>
+          <p className="text-gray-500 text-sm mt-2">{i.desc}</p>
 
-                <div className="flex justify-between items-center mt-4">
-                  <p className="text-pink-600 font-bold text-lg">${i.price}</p>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      addToCart(i);
-                    }}
-                    className="p-3 rounded-full bg-[#683292] text-white hover:bg-pink-600 cursor-pointer"
-                  >
-                    <ShoppingCart size={18} />
-                  </button>
-                </div>
-              </div>
-            ))}
+          <div className="flex justify-between items-center mt-4">
+            <p className="text-pink-600 font-bold text-lg">${i.price}</p>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                addToCart(i);
+              }}
+              className="p-3 rounded-full bg-[#683292] text-white hover:bg-pink-600 cursor-pointer"
+            >
+              <ShoppingCart size={18} />
+            </button>
           </div>
         </div>
-      </div>
+      ))}
+    </div>
+  </div>
+</div>
 
       {/* Best sellers */}
       <section className="text-center py-15 w-[100%] mt-[5%]">

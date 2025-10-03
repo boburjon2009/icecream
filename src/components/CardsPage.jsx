@@ -65,9 +65,11 @@ export default function CardsPage() {
   };
 
   // 🔗 Card bosilganda Product sahifasiga otkazish
-  const goToProduct = (product) => {
-    navigate(`/product/${product.id}`, { state: product });
-  };
+  // 🔗 Card bosilganda Product sahifasiga otkazish
+const goToProduct = (product) => {
+  navigate(`/product/${product.id}`, { state: product });
+};
+
 
   return (
     <div className="max-w-7xl mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
