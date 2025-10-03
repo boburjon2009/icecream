@@ -1,77 +1,59 @@
-import { MapPin, Phone, Mail } from "lucide-react";
 import { useState } from "react";
-
-// Telegram bot token va chat ID ni o'zgartiring
-const TELEGRAM_BOT_TOKEN = "BOT_TOKEN_HERE";
-const TELEGRAM_CHAT_ID = "CHAT_ID_HERE";
+import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-  const [success, setSuccess] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  const TOKEN = "7847488223:AAG2TEKN_odlEPyToNHojoW8meErJxR--ck"; // Bot token
+  const CHAT_ID = "7737152230"; // Seniki chat_id
+  const URL = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setSuccess("");
 
-    // Simple validation
-    if (
-      !formData.firstName ||
-      !formData.lastName ||
-      !formData.email ||
-      !formData.phone ||
-      !formData.message
-    ) {
-      alert("Please fill all fields!");
-      return;
-    }
-
-    const message = `
-New Contact Form Submission:
-Name: ${formData.firstName} ${formData.lastName}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Message: ${formData.message}
+    const text = `
+📩 Yangi Kontakt So'rovi:
+👤 Ism: ${firstName} ${lastName}
+📧 Email: ${email}
+📞 Telefon: ${phone}
+💬 Xabar: ${message}
     `;
 
     try {
-      const res = await fetch(
-        `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            chat_id: TELEGRAM_CHAT_ID,
-            text: message,
-          }),
-        }
-      );
+      const res = await fetch(URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text,
+        }),
+      });
+      const data = await res.json();
+      console.log("Telegram javobi:", data);
 
-      if (res.ok) {
-        setSuccess(true);
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          message: "",
-        });
-        setTimeout(() => setSuccess(false), 3000);
+      if (data.ok) {
+        setSuccess("Xabaringiz muvaffaqiyatli yuborildi ✅");
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setPhone("");
+        setMessage("");
       } else {
-        alert("Failed to send message to Telegram.");
+        setSuccess("Xatolik yuz berdi ❌");
       }
-    } catch (error) {
-      console.error(error);
-      alert("Error sending message.");
+    } catch (err) {
+      console.error(err);
+      setSuccess("Internetda xatolik ❌");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -79,6 +61,7 @@ Message: ${formData.message}
     <div className="w-full">
       {/* Contact Section */}
       <section className="py-16 bg-white text-center">
+        {/* Title */}
         <h2 className="text-3xl font-bold">
           Get in <span className="text-pink-600">Touch</span> With Us
         </h2>
@@ -86,6 +69,7 @@ Message: ${formData.message}
           Reach out and connect with us today for any inquiries or assistance!
         </p>
 
+        {/* Contact Content */}
         <div className="mt-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start">
           {/* Left Info */}
           <div className="space-y-6 text-left">
@@ -136,55 +120,54 @@ Message: ${formData.message}
             <div className="grid grid-cols-2 gap-4">
               <input
                 type="text"
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleChange}
                 placeholder="First Name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
                 className="border rounded-lg px-4 py-2 w-full text-sm focus:outline-pink-500"
+                required
               />
               <input
                 type="text"
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleChange}
                 placeholder="Last Name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
                 className="border rounded-lg px-4 py-2 w-full text-sm focus:outline-pink-500"
+                required
               />
             </div>
             <div className="grid grid-cols-2 gap-4">
               <input
                 type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
                 placeholder="Email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="border rounded-lg px-4 py-2 w-full text-sm focus:outline-pink-500"
+                required
               />
               <input
                 type="text"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
                 placeholder="Phone"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 className="border rounded-lg px-4 py-2 w-full text-sm focus:outline-pink-500"
               />
             </div>
             <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
               placeholder="Message"
               rows="5"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               className="border rounded-lg px-4 py-2 w-full text-sm focus:outline-pink-500"
+              required
             ></textarea>
-            <button className="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full font-medium transition">
-              Submit Now →
+            <button
+              type="submit"
+              disabled={loading}
+              className="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full font-medium transition disabled:opacity-50"
+            >
+              {loading ? "Yuborilmoqda..." : "Submit Now →"}
             </button>
-            {success && (
-              <p className="text-green-500 font-semibold mt-2">
-                Your message has been sent successfully!
-              </p>
-            )}
+            {success && <p className="text-green-600 mt-2">{success}</p>}
           </form>
         </div>
       </section>
@@ -204,4 +187,3 @@ Message: ${formData.message}
     </div>
   );
 }
-  

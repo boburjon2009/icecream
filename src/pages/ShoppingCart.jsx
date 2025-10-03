@@ -1,5 +1,6 @@
 // src/pages/Cart.jsx
 import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { X, Minus, Plus, ArrowLeft, ArrowRight } from "lucide-react";
 
@@ -149,10 +150,12 @@ export default function Cart() {
           <span>Grand Total</span>
           <span className="text-pink-500">${grandTotal}</span>
         </div>
-
-        <button className="mt-6 w-full bg-pink-500 hover:bg-pink-600 text-white py-3 rounded-full flex items-center justify-center gap-2">
+ <Link to={"/Checkout"}>
+            <button className="mt-6 w-full bg-pink-500 hover:bg-pink-600 text-white py-3 rounded-full flex items-center justify-center gap-2">
           Proceed to Checkout <ArrowRight size={16} />
         </button>
+          </Link>
+       
 
         <p className="text-xs text-gray-500 mt-4">
           🔒 Safe and Secure Payments, Easy Returns. 100% Authentic Products

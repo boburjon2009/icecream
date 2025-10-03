@@ -52,16 +52,12 @@ export default function Checkout() {
             <option value="cash">Cash on Delivery</option>
           </select>
         </div>
-                 <Link
-                  to={'/ThankYou'}
-                  className="block px-4 py-2 hover:bg-pink-50"
-                  onClick={() => setIsOpen(false)}
-                >        <button
-          type="submit"
-          className="w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white py-3 rounded-lg font-semibold hover:opacity-90 "
-        >
-          Place Order
-        </button></Link>
+                 <Link to={"/ThankYou"}>
+            <button className="mt-6 w-full bg-pink-500 hover:bg-pink-600 text-white py-3 rounded-full flex items-center justify-center gap-2">
+          Proceed to Checkout 
+        </button>
+          </Link>
+       
         {/* Place Order */}
         
       </form>
