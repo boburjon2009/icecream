@@ -1,6 +1,8 @@
 import { ArrowRight, Star, Heart, ShoppingCart } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import Testimonials from "./Testimonials";
+import shadowimg from "../imgs/shadowimg.png";
+
 // product images
 import product1 from "../imgs/prodect-1.png";
 import product2 from "../imgs/prodect-2.png";
@@ -89,8 +91,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="mt-10 md:mt-0 md:ml-10">
-            <img src="src/imgs/shadowimg.png" className="w-[420px] drop-shadow-2xl" />
-            <img src="src/imgs/shadowimg.png" className="w-[420px] drop-shadow-2xl" />
+            <img src={shadowimg} className="w-[420px] drop-shadow-2xl" />
 
           </div>
         </main>
