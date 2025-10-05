@@ -53,7 +53,7 @@ export default function Header({ searchQuery, setSearchQuery }) {
         <Link to={"/"}>
           <div className="flex items-center gap-2 cursor-pointer">
             <img
-              src="src/imgs/Group 1 (1).png"
+              src="public/imgs/Group 1 (1).png"
               alt="Logo"
               className="h-10 w-auto"
             />

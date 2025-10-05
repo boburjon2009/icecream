@@ -29,7 +29,6 @@ import { useContext, useState } from "react";
 import Header from "../components/Header"; // ✅ Header import
 
 export default function Home() {
-  // products
   const products = [
     { id: 1, img: product1, title: "Chocolate Brownie Sundae", desc: "Rich chocolate ice cream with chunks of brownie.", price: 5.49, bg: "#F7F2F7" },
     { id: 2, img: product2, title: "Strawberry Shortcake", desc: "Strawberry ice cream layered with shortcake", price: 5.29, bg: "#F7F2F7" },
