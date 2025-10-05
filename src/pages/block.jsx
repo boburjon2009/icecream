@@ -1,68 +1,30 @@
 import { useState } from "react";
 
+// Rasmlarni import qilamiz
+import img276 from "../imgs/276.png";
+import img277 from "../imgs/277.png";
+import img278 from "../imgs/278.png";
+import img279 from "../imgs/279 (1).png";
+import img280 from "../imgs/280.png";
+import img281 from "../imgs/281.png";
+import img282 from "../imgs/282.png";
+import img283 from "../imgs/283.png";
+import img284 from "../imgs/284 (1).png";
+import img285 from "../imgs/285.png";
+
 const categories = ["All", "Articles", "Announcements", "News", "Consultation", "Development"];
 
 const posts = [
-  {
-    title: "Our strength: Your Business",
-    date: "September 20, 2023",
-    category: "Announcements",
-    img: "src/imgs/276.png",
-  },
-  {
-    title: "How's the Economy?",
-    date: "September 18, 2023",
-    category: "News",
-    img: "src/imgs/277.png",
-  },
-  {
-    title: "Our strength: Your Business",
-    date: "September 17, 2023",
-    category: "Articles",
-    img: "src/imgs/278.png",
-  },
-  {
-    title: "How's the Economy?",
-    date: "September 16, 2023",
-    category: "News",
-    img: "src/imgs/279 (1).png",
-  },
-  {
-    title: "How's the Economy?",
-    date: "September 15, 2023",
-    category: "Announcements",
-    img: "src/imgs/280.png",
-  },
-  {
-    title: "How's the Economy?",
-    date: "September 14, 2023",
-    category: "Development",
-    img: "src/imgs/281.png",
-  },
-  {
-    title: "Our strength: Your Business",
-    date: "September 13, 2023",
-    category: "Consultation",
-    img: "src/imgs/282.png",
-  },
-  {
-    title: "Our strength: Your Business",
-    date: "September 12, 2023",
-    category: "Development",
-    img: "src/imgs/283.png",
-  },
-  {
-    title: "Our strength: Your Business",
-    date: "September 11, 2023",
-    category: "News",
-    img: "src/imgs/284 (1).png",
-  },
-  {
-    title: "Our strength: Your Business",
-    date: "September 10, 2023",
-    category: "Articles",
-    img: "src/imgs/285.png",
-  },
+  { title: "Our strength: Your Business", date: "September 20, 2023", category: "Announcements", img: img276 },
+  { title: "How's the Economy?", date: "September 18, 2023", category: "News", img: img277 },
+  { title: "Our strength: Your Business", date: "September 17, 2023", category: "Articles", img: img278 },
+  { title: "How's the Economy?", date: "September 16, 2023", category: "News", img: img279 },
+  { title: "How's the Economy?", date: "September 15, 2023", category: "Announcements", img: img280 },
+  { title: "How's the Economy?", date: "September 14, 2023", category: "Development", img: img281 },
+  { title: "Our strength: Your Business", date: "September 13, 2023", category: "Consultation", img: img282 },
+  { title: "Our strength: Your Business", date: "September 12, 2023", category: "Development", img: img283 },
+  { title: "Our strength: Your Business", date: "September 11, 2023", category: "News", img: img284 },
+  { title: "Our strength: Your Business", date: "September 10, 2023", category: "Articles", img: img285 },
 ];
 
 export default function Blog() {

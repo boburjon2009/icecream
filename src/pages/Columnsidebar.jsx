@@ -1,34 +1,41 @@
 import { useState } from "react";
 import { Search, Calendar } from "lucide-react";
 
+// Rasmlarni import qilamiz
+import img277 from "../imgs/277.png";
+import img284 from "../imgs/284 (1).png";
+import img283 from "../imgs/283.png";
+import img281 from "../imgs/281.png";
+import img278 from "../imgs/278.png";
+
 export default function Columnsidebar() {
   const postsData = [
     {
-      img: "src/imgs/277.png",
+      img: img277,
       title: "Ice Cream Post",
       desc: "Cum sociis natoque penatibus et magnis dis parturient montes...",
       date: "Dec 20, 2022",
     },
     {
-      img: "src/imgs/284 (1).png",
+      img: img284,
       title: "Chocolate Dessert",
       desc: "Cum sociis natoque penatibus et magnis dis parturient montes...",
       date: "Dec 20, 2022",
     },
     {
-      img: "src/imgs/283.png",
+      img: img283,
       title: "Berry Ice",
       desc: "Cum sociis natoque penatibus et magnis dis parturient montes...",
       date: "Dec 20, 2022",
     },
     {
-      img: "src/imgs/281.png",
+      img: img281,
       title: "Fresh Flowers",
       desc: "Cum sociis natoque penatibus et magnis dis parturient montes...",
       date: "Dec 20, 2022",
     },
     {
-      img: "src/imgs/278.png",
+      img: img278,
       title: "Video Post",
       desc: "Cum sociis natoque penatibus et magnis dis parturient montes...",
       date: "Dec 20, 2022",
@@ -45,9 +52,9 @@ export default function Columnsidebar() {
   );
 
   return (
-    <div className="flex  w-[70%] m-auto  min-h-screen p-8 gap-8">
+    <div className="flex w-[70%] m-auto min-h-screen p-8 gap-8">
       {/* Left side - posts */}
-      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-6 flex-1">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 flex-1">
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post, i) => (
             <div
@@ -65,7 +72,6 @@ export default function Columnsidebar() {
                 <div className="flex items-center gap-2 text-gray-500 text-xs">
                   <Calendar size={14} /> {post.date}
                 </div>
-
               </div>
             </div>
           ))
@@ -149,14 +155,7 @@ export default function Columnsidebar() {
         <div className="bg-white shadow rounded-2xl p-4">
           <h4 className="font-semibold mb-3">Tags</h4>
           <div className="flex flex-wrap gap-2">
-            {[
-              "Tips",
-              "WordPress",
-              "Hosting",
-              "PHP",
-              "Products",
-              "Photography",
-            ].map((tag) => (
+            {["Tips", "WordPress", "Hosting", "PHP", "Products", "Photography"].map((tag) => (
               <span
                 key={tag}
                 className="bg-pink-100 text-pink-600 px-3 py-1 text-xs rounded-full"

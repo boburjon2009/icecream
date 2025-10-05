@@ -1,6 +1,13 @@
 import { useState } from "react";
-import { Calendar, User , ArrowRight } from "lucide-react";
+import { Calendar, User, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+
+// Rasmlarni import qilamiz
+import img1 from "../imgs/post-featured.jpg.png";
+import img2 from "../imgs/post-featured2.jpg.png";
+import img3 from "../imgs/post-featured4.jpg.png";
+import img4 from "../imgs/311.png";
+import img5 from "../imgs/YouTube Video Player.png";
 
 export default function Onecolumn() {
   const allPosts = [
@@ -10,7 +17,7 @@ export default function Onecolumn() {
       author: "Admin",
       category: "Virtual Assistant",
       date: "Dec 20, 2022",
-      image: "src/imgs/post-featured.jpg.png",
+      image: img1,
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius enim at dui consequat...",
       type: "image",
     },
@@ -20,7 +27,7 @@ export default function Onecolumn() {
       author: "Admin",
       category: "Virtual Assistant",
       date: "Dec 20, 2022",
-      image: "src/imgs/post-featured2.jpg.png",
+      image: img2,
       text: "Aenean commodo ligula eget dolor. Nullam quis risus eget urna mollis ornare vel eu leo.",
       type: "image",
     },
@@ -30,7 +37,7 @@ export default function Onecolumn() {
       author: "Admin",
       category: "Virtual Assistant",
       date: "Dec 20, 2022",
-      image: "src/imgs/post-featured4.jpg.png",
+      image: img3,
       text: "Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante venenatis.",
       type: "image",
     },
@@ -39,8 +46,7 @@ export default function Onecolumn() {
       author: "Admin",
       category: "Virtual Assistant",
       date: "Dec 20, 2022",
-      video: true,
-      img :"src/imgs/311.png",
+      image: img4,
       type: "video",
     },
     {
@@ -49,11 +55,10 @@ export default function Onecolumn() {
       author: "Admin",
       category: "Virtual Assistant",
       date: "Dec 20, 2022",
-      image: "src/imgs/YouTube Video Player.png",
+      image: img5,
       text: "Vestibulum id ligula porta felis euismod semper. Curabitur blandit tempus porttitor.",
       type: "image",
     },
-
   ];
 
   const [visibleCount, setVisibleCount] = useState(3);
@@ -77,8 +82,9 @@ export default function Onecolumn() {
               className="w-full h-64 object-cover"
             />
           ) : (
-            <div className="w-full h-64  flex flex-col items-center justify-center bg-black text-white text-lg">
-            <h1 className="font-bold text-4xl">sorry</h1><p>, This video doesn’t exist.</p>
+            <div className="w-full h-64 flex flex-col items-center justify-center bg-black text-white text-lg">
+              <h1 className="font-bold text-4xl">Sorry</h1>
+              <p>This video doesn’t exist.</p>
             </div>
           )}
 
@@ -107,14 +113,14 @@ export default function Onecolumn() {
                 <Calendar size={14} className="mr-1 text-pink-500" />
                 {post.date}
               </div>
-            <Link
-                  to={'/BlogSingle'}
-                  className="block px-4 py-2 hover:bg-pink-50"
-                  onClick={() => setIsOpen(false)}
-                >
-             <button className="bg-[#F83D8E] rounded-full flex gap-6 p-3 items-center text-white">Read More <ArrowRight size={15} /></button>
-
-                </Link>
+              <Link
+                to={'/BlogSingle'}
+                className="block px-4 py-2 hover:bg-pink-50"
+              >
+                <button className="bg-[#F83D8E] rounded-full flex gap-6 p-3 items-center text-white">
+                  Read More <ArrowRight size={15} />
+                </button>
+              </Link>
             </div>
           </div>
         </div>

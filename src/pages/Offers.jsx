@@ -3,6 +3,13 @@ import { Heart, ShoppingCart, Star } from "lucide-react";
 import { CartContext } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 
+// Rasmlarni import qilamiz
+import img1 from "../imgs/41.png";
+import img2 from "../imgs/isecream.png";
+import img3 from "../imgs/icecream2.png";
+import img4 from "../imgs/icecreaqm3.png";
+import img5 from "../imgs/prodect-1.png";
+
 const products = [
   {
     id: 1,
@@ -11,7 +18,7 @@ const products = [
     oldPrice: 12.99,
     newPrice: 5.99,
     rating: 4.8,
-    image: "src/imgs/41.png",
+    image: img1,
   },
   {
     id: 2,
@@ -20,7 +27,7 @@ const products = [
     oldPrice: 13.99,
     newPrice: 4.49,
     rating: 4.8,
-    image: "src/imgs/isecream.png",
+    image: img2,
   },
   {
     id: 3,
@@ -29,7 +36,7 @@ const products = [
     oldPrice: 14.99,
     newPrice: 5.69,
     rating: 4.8,
-    image: "src/imgs/icecream2.png",
+    image: img3,
   },
   {
     id: 4,
@@ -38,7 +45,7 @@ const products = [
     oldPrice: 16.99,
     newPrice: 5.39,
     rating: 4.8,
-    image: "src/imgs/icecreaqm3.png",
+    image: img4,
   },
   {
     id: 5,
@@ -47,7 +54,7 @@ const products = [
     oldPrice: 10.99,
     newPrice: 4.29,
     rating: 4.7,
-    image: "src/imgs/icecream5.png",
+    image: img5,
   },
 ];
 
@@ -82,8 +89,8 @@ export default function Offers() {
   const currentProducts = products.slice(startIndex, startIndex + itemsPerPage);
 
   return (
-    <section className="py-12 px-6 text-center  w-[90%] m-auto rounded-xl">
-      <h2 className="text-3xl font-bold mb-2 ">
+    <section className="py-12 px-6 text-center w-[90%] m-auto rounded-xl">
+      <h2 className="text-3xl font-bold mb-2">
         Upto <span className="text-pink-500">30%</span> Discount
       </h2>
       <p className="text-gray-700 mb-10">
@@ -101,6 +108,7 @@ export default function Offers() {
             <span className="absolute top-4 right-4 bg-pink-500 text-white text-xs px-2 py-1 rounded-full">
               30% OFF
             </span>
+
             <img
               src={product.image}
               alt={product.name}
@@ -136,18 +144,14 @@ export default function Offers() {
               <span className="line-through text-gray-400">
                 ${product.oldPrice}
               </span>
-              <span className="text-pink-600 font-bold">
-                ${product.newPrice}
-              </span>
+              <span className="text-pink-600 font-bold">${product.newPrice}</span>
             </div>
 
             <div
               onClick={(e) => e.stopPropagation()}
               className="flex justify-between items-center mt-4"
             >
-              <p className="text-pink-600 font-bold text-lg">
-                ${product.newPrice}
-              </p>
+              <p className="text-pink-600 font-bold text-lg">${product.newPrice}</p>
               <button
                 onClick={() => addToCart(product)}
                 className="p-3 rounded-full bg-[#683292] text-white hover:bg-pink-600 cursor-pointer"

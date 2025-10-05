@@ -2,107 +2,34 @@ import { useState } from "react";
 import { Calendar, User } from "lucide-react";
 import { Link } from "react-router-dom";
 
+// Rasmlarni import qilamiz
+import img277 from "../imgs/277.png";
+import img278 from "../imgs/278.png";
+import img279 from "../imgs/279 (1).png";
+import img280 from "../imgs/280.png";
+import img281 from "../imgs/281.png";
+import img282 from "../imgs/282.png";
+import img283 from "../imgs/283.png";
+import img284 from "../imgs/284 (1).png";
+import img285 from "../imgs/285.png";
+import img290 from "../imgs/290.png";
+import img293 from "../imgs/293.png";
+import img301 from "../imgs/301.png";
+
 export default function BlogCards() {
   const allPosts = [
-    {
-      id: 1,
-      title: "Why You Need Virtual Assistant for Your Company",
-      category: "Virtual Assistant",
-      author: "Admin",
-      date: "Dec 20, 2022",
-      image: "src/imgs/277.png",
-    },
-    {
-      id: 2,
-      title: "",
-      category: "Virtual Assistant",
-      author: "Admin",
-      date: "Dec 20, 2022",
-      image: "src/imgs/278.png",
-    },
-    {
-      id: 3,
-      title: "Why You Need Virtual Assistant for Your Company",
-      category: "Virtual Assistant",
-      author: "Admin",
-      date: "Dec 20, 2022",
-      image: "src/imgs/279 (1).png",
-    },
-    {
-      id: 4,
-      title: "Why You Need Virtual Assistant for Your Company",
-      category: "Virtual Assistant",
-      author: "Admin",
-      date: "Dec 20, 2022",
-      image: "src/imgs/280.png",
-    },
-    {
-      id: 5,
-      title: "Why You Need Virtual Assistant for Your Company",
-      category: "Virtual Assistant",
-      author: "Admin",
-      date: "Dec 20, 2022",
-      image: "src/imgs/281.png",
-    },
-    {
-      id: 6,
-      title: "Why You Need Virtual Assistant for Your Company",
-      category: "Virtual Assistant",
-      author: "Admin",
-      date: "Dec 20, 2022",
-      image: "src/imgs/282.png",
-    },
-
-
-
-    {
-      id: 4,
-      title: "Why You Need Virtual Assistant for Your Company",
-      category: "Virtual Assistant",
-      author: "Admin",
-      date: "Dec 20, 2022",
-      image: "src/imgs/283.png",
-    },
-    {
-      id: 5,
-      title: "Why You Need Virtual Assistant for Your Company",
-      category: "Virtual Assistant",
-      author: "Admin",
-      date: "Dec 20, 2022",
-      image: "src/imgs/284 (1).png",
-    },
-    {
-      id: 6,
-      title: "Why You Need Virtual Assistant for Your Company",
-      category: "Virtual Assistant",
-      author: "Admin",
-      date: "Dec 20, 2022",
-      image: "src/imgs/285.png",
-    },
-    {
-      id: 4,
-      title: "Why You Need Virtual Assistant for Your Company",
-      category: "Virtual Assistant",
-      author: "Admin",
-      date: "Dec 20, 2022",
-      image: "src/imgs/290.png",
-    },
-    {
-      id: 5,
-      title: "Why You Need Virtual Assistant for Your Company",
-      category: "Virtual Assistant",
-      author: "Admin",
-      date: "Dec 20, 2022",
-      image: "src/imgs/293.png",
-    },
-    {
-      id: 6,
-      title: "Why You Need Virtual Assistant for Your Company",
-      category: "Virtual Assistant",
-      author: "Admin",
-      date: "Dec 20, 2022",
-      image: "src/imgs/301.png",
-    },
+    { id: 1, title: "Why You Need Virtual Assistant for Your Company", category: "Virtual Assistant", author: "Admin", date: "Dec 20, 2022", image: img277 },
+    { id: 2, title: "The Importance of Virtual Assistants", category: "Virtual Assistant", author: "Admin", date: "Dec 20, 2022", image: img278 },
+    { id: 3, title: "Why You Need Virtual Assistant for Your Company", category: "Virtual Assistant", author: "Admin", date: "Dec 20, 2022", image: img279 },
+    { id: 4, title: "Why You Need Virtual Assistant for Your Company", category: "Virtual Assistant", author: "Admin", date: "Dec 20, 2022", image: img280 },
+    { id: 5, title: "Why You Need Virtual Assistant for Your Company", category: "Virtual Assistant", author: "Admin", date: "Dec 20, 2022", image: img281 },
+    { id: 6, title: "Why You Need Virtual Assistant for Your Company", category: "Virtual Assistant", author: "Admin", date: "Dec 20, 2022", image: img282 },
+    { id: 7, title: "Why You Need Virtual Assistant for Your Company", category: "Virtual Assistant", author: "Admin", date: "Dec 20, 2022", image: img283 },
+    { id: 8, title: "Why You Need Virtual Assistant for Your Company", category: "Virtual Assistant", author: "Admin", date: "Dec 20, 2022", image: img284 },
+    { id: 9, title: "Why You Need Virtual Assistant for Your Company", category: "Virtual Assistant", author: "Admin", date: "Dec 20, 2022", image: img285 },
+    { id: 10, title: "Why You Need Virtual Assistant for Your Company", category: "Virtual Assistant", author: "Admin", date: "Dec 20, 2022", image: img290 },
+    { id: 11, title: "Why You Need Virtual Assistant for Your Company", category: "Virtual Assistant", author: "Admin", date: "Dec 20, 2022", image: img293 },
+    { id: 12, title: "Why You Need Virtual Assistant for Your Company", category: "Virtual Assistant", author: "Admin", date: "Dec 20, 2022", image: img301 },
   ];
 
   const [visibleCount, setVisibleCount] = useState(3);
@@ -146,11 +73,11 @@ export default function BlogCards() {
                 <Link
                   to={'/Columnsidebar'}
                   className="block px-4 py-2 hover:bg-pink-50"
-                  onClick={() => setIsOpen(false)}>
-                <button className="px-4 py-1 bg-pink-500 text-white text-sm rounded-full hover:bg-pink-600 transition">
-                  Read More
-                </button>
-                  </Link>
+                >
+                  <button className="px-4 py-1 bg-pink-500 text-white text-sm rounded-full hover:bg-pink-600 transition">
+                    Read More
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

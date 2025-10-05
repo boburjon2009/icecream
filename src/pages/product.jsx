@@ -3,11 +3,17 @@ import { useContext, useState } from "react";
 import { Star, ShoppingCart } from "lucide-react";
 import { CartContext } from "../context/CartContext";
 
+// Rasmlarni import qilamiz
+import img1 from "../imgs/prodect-1.png";
+import img2 from "../imgs/prodect-2.png";
+import img3 from "../imgs/prodect-3.png";
+import img4 from "../imgs/prodect-4.png";
+
 export default function Product() {
   const { state: product } = useLocation();
   const { setCart } = useContext(CartContext);
 
-  const defaultImage = "/src/imgs/prodect-1.png";
+  const defaultImage = img1;
   const defaultPrice = product?.newPrice || product?.price || 0;
 
   const [mainPrice, setMainPrice] = useState(defaultPrice);
@@ -15,10 +21,10 @@ export default function Product() {
 
   const thumbnails = [
     { img: product?.img || defaultImage, price: defaultPrice },
-    { img: "/src/imgs/prodect-1.png", price: 6.99 },
-    { img: "/src/imgs/prodect-2.png", price: 7.49 },
-    { img: "/src/imgs/prodect-3.png", price: 8.0 },
-    { img: "/src/imgs/prodect-4.png", price: 9.5 },
+    { img: img1, price: 6.99 },
+    { img: img2, price: 7.49 },
+    { img: img3, price: 8.0 },
+    { img: img4, price: 9.5 },
   ];
 
   const addToCart = () => {
@@ -61,7 +67,6 @@ export default function Product() {
             alt={product?.name || "Product image"}
             className="w-[350px] h-[350px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] object-contain rounded-xl shadow-md bg-white"
           />
-          
         </div> 
       </div>
 

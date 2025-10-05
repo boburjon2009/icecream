@@ -1,56 +1,43 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
-import { X, Minus, Plus, ArrowRight } from "lucide-react";
+import { X, Minus, Plus, ArrowLeft, ArrowRight } from "lucide-react";
 
 export default function Cart() {
-  const { cart, updateQty, removeFromCart } = useContext(CartContext);
+  const { cart, setCart, updateQty, removeFromCart } = useContext(CartContext);
   const [coupon, setCoupon] = useState("");
   const [discount, setDiscount] = useState(0);
 
-  // hisoblash
+  // hisoblash (NaN bo‘lmasligi uchun Number(...))
   const subTotal = cart.reduce(
     (acc, item) => acc + (Number(item?.price) || 0) * (Number(item?.qty) || 1),
     0
   );
   const shipping = cart.length > 0 ? 20 : 0;
-  const grandTotal = (subTotal - discount + shipping).toFixed(2);
+  const grandTotal = (subTotal - discount ).toFixed(2);
 
-  // Kupon tizimi
+  // kupon funksiyasi
   const applyCoupon = () => {
-    let totalDiscount = 0;
-
-    // bir nechta kuponni qo‘llab
-    const coupons = coupon
-      .split(",")
-      .map((c) => c.trim().toLowerCase())
-      .filter(Boolean);
-
-    coupons.forEach((c) => {
-      if (c === "boburjon11") totalDiscount += 30;
-      else if (c === "boburjon12") totalDiscount += 25;
-      else if (c === "boburjon123") totalDiscount += 10;
-      else if (c === "boburjon44") totalDiscount += 15;
-      else if (c === "boburjon09") totalDiscount += 50;
-    });
-
-    if (totalDiscount > 100) totalDiscount = 100; // maksimal 100% chegirma
-    setDiscount((subTotal * totalDiscount) / 100);
+    if (coupon === "DISCOUNT10") {
+      setDiscount(subTotal * 0.1);
+    } else {
+      setDiscount(0);
+    }
   };
 
   return (
     <div className="w-[80%] m-auto flex flex-col lg:flex-row gap-8 p-4 sm:p-6 lg:p-10 bg-gray-50 min-h-screen">
-      {/* Chap tomon */}
-      <div className="flex-1 rounded-xl shadow p-4 sm:p-6 bg-white">
+      {/* chap tomon */}
+      <div className="flex-1 h-[50]  rounded-xl shadow p-4 sm:p-6">
         <h2 className="text-lg sm:text-xl font-semibold mb-4 flex justify-between items-center">
           Shopping Cart{" "}
-          <span className="text-gray-500 text-sm">({cart.length} Items)</span>
+          <span className="text-gray-500 text-sm">
+            ({cart.length} Items)
+          </span>
         </h2>
 
         {cart.length === 0 ? (
-          <p className="text-center text-gray-500 py-10">
-            Your cart is empty 🛒
-          </p>
+          <p className="text-center text-gray-500 py-10">Your cart is empty 🛒</p>
         ) : (
           <div className="divide-y">
             {cart.map((item) => (
@@ -65,9 +52,7 @@ export default function Cart() {
                     className="w-20 h-20 sm:w-16 sm:h-16 rounded-lg object-cover"
                   />
                   <div>
-                    <h3 className="font-semibold text-sm sm:text-base">
-                      {item.name}
-                    </h3>
+                    <h3 className="font-semibold text-sm sm:text-base">{item.name}</h3>
                     <p className="text-xs sm:text-sm text-gray-600">
                       Color:{" "}
                       <span className="font-medium">{item?.color || "-"}</span>
@@ -77,10 +62,17 @@ export default function Cart() {
                       <span className="font-medium">{item?.size || "-"}</span>
                     </p>
                   </div>
+                  <div>
+                    <h3 className="font-semibold text-sm sm:text-base">{item.title}</h3>
+                    
+                  </div>
                 </div>
 
-                {/* qty va narx */}
                 <div className="flex flex-wrap items-center justify-between sm:justify-end gap-4 sm:gap-8">
+                  {/* narx */}
+                  
+
+                  {/* qty boshqarish */}
                   <div className="flex items-center border rounded-full">
                     <button
                       onClick={() => updateQty(item.id, "dec")}
@@ -101,6 +93,7 @@ export default function Cart() {
                     </button>
                   </div>
 
+                  {/* umumiy narx */}
                   <p className="font-semibold text-sm sm:text-base">
                     {(
                       (Number(item?.price) || 0) * (Number(item?.qty) || 1)
@@ -108,6 +101,7 @@ export default function Cart() {
                     $
                   </p>
 
+                  {/* o‘chirish */}
                   <button
                     onClick={() => removeFromCart(item.id)}
                     className="text-red-500 hover:text-red-600"
@@ -119,9 +113,11 @@ export default function Cart() {
             ))}
           </div>
         )}
+
+        
       </div>
 
-      {/* O‘ng tomon */}
+      {/* o‘ng tomon */}
       <div className="h-[40vh] lg:w-[350px] bg-white rounded-xl shadow p-4 sm:p-6">
         <h3 className="font-semibold mb-4 text-lg">Order Summary</h3>
         <div className="flex items-center mb-4 border rounded-lg overflow-hidden">
@@ -129,7 +125,7 @@ export default function Cart() {
             type="text"
             value={coupon}
             onChange={(e) => setCoupon(e.target.value)}
-            placeholder="Apply Coupons (ex: boburjon11,boburjon12)"
+            placeholder="Apply Coupons"
             className="flex-1 px-3 py-2 outline-none text-sm"
           />
           <button
@@ -175,3 +171,4 @@ export default function Cart() {
     </div>
   );
 }
+ 
