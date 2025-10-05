@@ -90,6 +90,8 @@ export default function Home() {
           </div>
           <div className="mt-10 md:mt-0 md:ml-10">
             <img src="src/imgs/shadowimg.png" className="w-[420px] drop-shadow-2xl" />
+            <img src="src/imgs/shadowimg.png" className="w-[420px] drop-shadow-2xl" />
+
           </div>
         </main>
       </div>
