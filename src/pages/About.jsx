@@ -3,15 +3,27 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
+// Images import
+import loveIcecream from "../imgs/love-icecream.png";
+import missionTriangle from "../imgs/mission-triangle.png.png";
+import girlsIcecream from "../imgs/girls-icecream.png";
+
+// Team images
+import member1 from "../imgs/110 (1).png";
+import member2 from "../imgs/112.png";
+import member3 from "../imgs/114.png";
+import member4 from "../imgs/team-image4.jpg.png";
+import member5 from "../imgs/team-image5.jpg.png";
+import member6 from "../imgs/team-image6.jpg.png";
+
 export default function AboutHeader() {
-  // Team data
   const team = [
-    { id: 1, name: "Marvin Joner", role: "Bakery Worker", img: "src/imgs/110 (1).png" },
-    { id: 2, name: "Patricia Woodrum", role: "Staff Worker", img: "src/imgs/112.png" },
-    { id: 3, name: "Hannaz Stone", role: "Shop Worker", img: "src/imgs/114.png" },
-    { id: 4, name: "Sophia Lee", role: "Ice Cream Designer", img: "src/imgs/team-image4.jpg.png" },
-    { id: 5, name: "James Carter", role: "Marketing", img: "src/imgs/team-image5.jpg.png" },
-    { id: 6, name: "Olivia Brown", role: "Cashier", img: "src/imgs/team-image6.jpg.png" },
+    { id: 1, name: "Marvin Joner", role: "Bakery Worker", img: member1 },
+    { id: 2, name: "Patricia Woodrum", role: "Staff Worker", img: member2 },
+    { id: 3, name: "Hannaz Stone", role: "Shop Worker", img: member3 },
+    { id: 4, name: "Sophia Lee", role: "Ice Cream Designer", img: member4 },
+    { id: 5, name: "James Carter", role: "Marketing", img: member5 },
+    { id: 6, name: "Olivia Brown", role: "Cashier", img: member6 },
   ];
 
   const [index, setIndex] = useState(0);
@@ -40,7 +52,7 @@ export default function AboutHeader() {
       <div className="mt-10 mb-10 px-4">
         <div className="w-full md:w-[85%] flex flex-col md:flex-row justify-center items-center m-auto gap-10">
           <div className="w-full md:w-[50%]">
-            <img src="src/imgs/love-icecream.png" alt="" className="w-full" />
+            <img src={loveIcecream} alt="Love Icecream" className="w-full" />
           </div>
 
           <div className="w-full md:w-[50%] text-center md:text-left">
@@ -67,7 +79,7 @@ export default function AboutHeader() {
       <div className="w-full bg-[#683292] flex flex-col md:flex-row justify-center md:justify-end items-center px-4 md:px-0 py-10">
         <div className="w-full md:w-[75%] flex flex-col md:flex-row justify-between items-center relative">
           <div className="text-white w-full md:w-[50%] text-center md:text-left px-4 md:px-10">
-            <img src="src/imgs/mission-triangle.png.png" className="absolute left-[5%] top-[10%] hidden md:block" alt="" />
+            <img src={missionTriangle} className="absolute left-[5%] top-[10%] hidden md:block" alt="Mission Triangle" />
             <h1 className="text-3xl md:text-5xl font-bold mb-6">Our Mission is to Create Moments</h1>
             <p className="mb-6 text-gray-200">
               We strive to foster a welcoming and joyful environment where customers can celebrate and make lasting memories.
@@ -77,32 +89,8 @@ export default function AboutHeader() {
             </button>
           </div>
           <div className="mt-10 md:mt-0">
-            <img src="src/imgs/girls-icecream.png" alt="" className="w-[80%] md:w-full mx-auto" />
+            <img src={girlsIcecream} alt="Girls Icecream" className="w-[80%] md:w-full mx-auto" />
           </div>
-        </div>
-      </div>
-
-      {/* Statistics */}
-      <div className="mt-16 mb-16 px-4">
-        <div className="text-center mb-10">
-          <h1 className="text-3xl md:text-5xl font-bold">
-            Our <span className="text-[#F83D8E]">Statistics</span>
-          </h1>
-          <p className="text-gray-600">What makes us special through our impressive statistics.</p>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full md:w-[80%] mx-auto">
-          {[
-            { number: "91+", label: "Awards Win" },
-            { number: "95%", label: "Satisfied Clients" },
-            { number: "48+", label: "Years of Experience" },
-            { number: "143+", label: "Employees Working" },
-          ].map((stat, i) => (
-            <div key={i} className="bg-white p-6 rounded-2xl border-b-2 border-[#F83D8E] text-center shadow-sm">
-              <h1 className="text-4xl md:text-5xl font-bold mb-2">{stat.number}</h1>
-              <p className="text-[#646464]">{stat.label}</p>
-            </div>
-          ))}
         </div>
       </div>
 
@@ -118,7 +106,6 @@ export default function AboutHeader() {
         </div>
 
         <div className="relative w-full md:w-[90%] mx-auto flex items-center justify-center">
-          {/* Prev Button */}
           <button
             onClick={prevSlide}
             className="p-3 absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-full shadow hover:bg-pink-100"
@@ -126,7 +113,6 @@ export default function AboutHeader() {
             <MoveLeft />
           </button>
 
-          {/* Team Members (responsive) */}
           <div className="flex flex-wrap justify-center gap-8 md:gap-10">
             {team.slice(index, index + 3).map((member) => (
               <div
@@ -150,7 +136,6 @@ export default function AboutHeader() {
             ))}
           </div>
 
-          {/* Next Button */}
           <button
             onClick={nextSlide}
             className="p-3 absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-full shadow hover:bg-pink-100"
