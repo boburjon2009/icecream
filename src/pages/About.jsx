@@ -2,19 +2,22 @@ import { Facebook, Instagram, MoveLeft, MoveRight, Youtube } from "lucide-react"
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import product1 from "../imgs/21.png";
-import product2 from "../imgs/prodect-2.png";
-import product3 from "../imgs/prodect-3.png";
-import product4 from "../imgs/prodect-4.png";
+import product1 from "../imgs/love-icecream.png";
+import product2 from "../imgs/110 (1).png";
+import product3 from "../imgs/112.png";
+import product4 from "../imgs/114.png";
+import product5 from "../imgs/team-image4.jpg.png";
+import product6 from "../imgs/team-image5.jpg.png";
+import product7 from "../imgs/team-image6.jpg.png";
 export default function AboutHeader() {
   // Team data
   const team = [
-    { id: 1, name: "Marvin Joner", role: "Bakery Worker", img: "src/imgs/110 (1).png" },
-    { id: 2, name: "Patricia Woodrum", role: "Staff Worker", img: "src/imgs/112.png" },
-    { id: 3, name: "Hannaz Stone", role: "Shop Worker", img: "src/imgs/114.png" },
-    { id: 4, name: "Sophia Lee", role: "Ice Cream Designer", img: "src/imgs/team-image4.jpg.png" },
-    { id: 5, name: "James Carter", role: "Marketing", img: "src/imgs/team-image5.jpg.png" },
-    { id: 6, name: "Olivia Brown", role: "Cashier", img: "src/imgs/team-image6.jpg.png" },
+    { id: 1, name: "Marvin Joner", role: "Bakery Worker", img: product2 },
+    { id: 2, name: "Patricia Woodrum", role: "Staff Worker", img: product3 },
+    { id: 3, name: "Hannaz Stone", role: "Shop Worker", img: product4 },
+    { id: 4, name: "Sophia Lee", role: "Ice Cream Designer", img: product5 },
+    { id: 5, name: "James Carter", role: "Marketing", img: product6 },
+    { id: 6, name: "Olivia Brown", role: "Cashier", img: product7 },
   ];
 
   const [index, setIndex] = useState(0);
