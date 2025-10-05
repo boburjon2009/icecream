@@ -1,4 +1,9 @@
 import { MapPin, MailOpen, PhoneCall, Facebook, Instagram } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+
+// Rasm importlari
+import logo from "../imgs/Group 1 (1).png";
+import decorImg from "../imgs/977b0075aff18e92a704e7c5b3f4e5bb61216844.png";
 
 export default function Footer() {
   return (
@@ -7,7 +12,7 @@ export default function Footer() {
         <div className="w-[90%] lg:w-[70%] flex flex-col lg:flex-row justify-between items-start lg:items-center gap-10 py-9">
           {/* Logo */}
           <div>
-            <img src="src/imgs/Group 1 (1).png" alt="Logo" className="w-32 sm:w-40" />
+            <img src={logo} alt="Logo" className="w-32 sm:w-40" />
           </div>
 
           {/* Navigation */}
@@ -16,14 +21,23 @@ export default function Footer() {
               <h1 className="text-xl sm:text-2xl text-[#CFB6E2] mb-4">Navigation</h1>
               <div className="flex gap-10 text-[#CFB6E2] text-sm sm:text-base">
                 <div>
-                  <p>Home</p>
-                  <p>About</p>
-                  <p>Shop</p>
+                    <Link to={"/"}>
+          <p>Home</p>
+        </Link>
+          <Link to={"/about"} className="hover:text-pink-500 transition"> <p>about</p></Link>
+                <Link to={"/ShopPage"} className="block px-4 py-2 hover:bg-pink-50"><p>shop</p></Link>
+
+                 
                 </div>
                 <div>
-                  <p>Blog</p>
-                  <p>Contact</p>
-                  <p>FAQ</p>
+                <Link to={"/Blog"} className="block px-4 py-2 hover:bg-pink-50"><p>Blog</p></Link>
+<Link to={"/Contact"}>
+                           <p>Contact</p>
+          </Link>
+          <Link to={"/faq"} className="hover:text-pink-500 transition"><p>FAQ</p></Link>
+
+                  
+                  
                 </div>
               </div>
             </div>
@@ -80,7 +94,7 @@ export default function Footer() {
 
       {/* Dekor rasm */}
       <img
-        src="src/imgs/977b0075aff18e92a704e7c5b3f4e5bb61216844.png"
+        src={decorImg}
         className="absolute left-0 bottom-0 w-32 sm:w-48 opacity-70"
         alt=""
       />

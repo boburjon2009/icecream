@@ -2,6 +2,7 @@ import { Search, ShoppingCart, Menu, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState, useRef, useEffect } from "react";
 import { CartContext } from "../context/CartContext";
+import logo from "../imgs/Group 1 (1).png";
 
 export default function Header({ searchQuery, setSearchQuery }) {
   const [isOpen, setIsOpen] = useState(false); // Pages dropdown
@@ -53,7 +54,7 @@ export default function Header({ searchQuery, setSearchQuery }) {
         <Link to={"/"}>
           <div className="flex items-center gap-2 cursor-pointer">
             <img
-              src="public/imgs/Group 1 (1).png"
+              src={logo}
               alt="Logo"
               className="h-10 w-auto"
             />

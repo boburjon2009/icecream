@@ -1,5 +1,12 @@
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+// Rasmlarni import qilamiz
+import iceLeft from "../imgs/361.png";
+import iceMiddleTop from "../imgs/359.png";
+import iceMiddleBottom from "../imgs/360.png";
+import iceRight from "../imgs/362.png";
 
 export default function Faq() {
   const [email, setEmail] = useState("");
@@ -17,7 +24,7 @@ export default function Faq() {
   // --- Telegramga yuborish funksiyasi ---
   const sendToTelegram = async (email) => {
     const token = "7847488223:AAG2TEKN_odlEPyToNHojoW8meErJxR--ck"; // token
-    const chatId = "7737152230"; // o‘zingning Telegram ID'ing (sendMessage dan kelgan ID)
+    const chatId = "7737152230"; // o‘zingning Telegram ID'ing
     const message = `📩 Yangi obunachi!\nEmail: ${email}`;
 
     try {
@@ -78,14 +85,14 @@ export default function Faq() {
       <section className="bg-pink-600 relative overflow-hidden py-16 text-center text-white">
         <div className="relative z-10 w-[85%] md:w-[70%] mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
           <img
-            src="src/imgs/361.png"
+            src={iceLeft}
             alt="ice cream left"
             className="w-48 md:w-72 lg:w-80 transition-all"
           />
 
           <img
             className="absolute left-[25%] top-[20%] w-16 md:w-24 opacity-70"
-            src="src/imgs/359.png"
+            src={iceMiddleTop}
             alt=""
           />
 
@@ -107,12 +114,12 @@ export default function Faq() {
 
           <img
             className="absolute right-[30%] bottom-[20%] w-16 md:w-24 opacity-70"
-            src="src/imgs/360.png"
+            src={iceMiddleBottom}
             alt=""
           />
 
           <img
-            src="src/imgs/362.png"
+            src={iceRight}
             alt="ice cream right"
             className="w-48 md:w-72 lg:w-80 transition-all"
           />
@@ -159,16 +166,15 @@ export default function Faq() {
 
           <div className="flex gap-2 items-center justify-center text-sm">
             <input type="checkbox" />
-            <p>
+            <Link to={"/PrivacyPolicy"} className="hover:text-pink-500 transition"><p>
               I agree to the{" "}
               <span className="text-[#F83D8E] underline cursor-pointer">
                 Privacy Policy
               </span>.
-            </p>
+            </p></Link>
           </div>
         </div>
       </div>
     </div>
   );
 }
-  
