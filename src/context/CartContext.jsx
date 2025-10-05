@@ -5,7 +5,7 @@ export const CartContext = createContext();
 export default function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
-  // Add to cart
+  // ➕ Add to cart
   const addToCart = (product) => {
     setCart((prev) => {
       const exist = prev.find((item) => item.id === product.id);
@@ -20,6 +20,7 @@ export default function CartProvider({ children }) {
     });
   };
 
+  // 🔁 Miqdorni yangilash
   const updateQty = (id, type) => {
     setCart((prev) =>
       prev.map((item) =>
@@ -36,6 +37,7 @@ export default function CartProvider({ children }) {
     );
   };
 
+  // ❌ Faqat bitta cardni o‘chirish
   const removeFromCart = (id) => {
     setCart((prev) => prev.filter((item) => item.id !== id));
   };

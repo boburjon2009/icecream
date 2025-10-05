@@ -74,40 +74,42 @@ export default function Blog() {
       : posts.filter((post) => post.category === activeCategory);
 
   return (
-    <div className="p-6 max-w-6xl  mx-auto">
+    <div className="p-4 sm:p-6 md:p-10 max-w-7xl mx-auto">
       {/* Categories */}
-      <div className="flex justify-center space-x-4 mb-8">
+      <div className="flex flex-wrap justify-center gap-3 mb-8">
         {categories.map((cat) => (
-          <div
+          <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
+            className={`rounded-full px-4 py-2 text-sm sm:text-base font-medium transition-all duration-300 ${
               activeCategory === cat
                 ? "bg-pink-500 text-white"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
             }`}
           >
             {cat}
-          </div>
+          </button>
         ))}
       </div>
 
       {/* Posts Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {filteredPosts.map((post, index) => (
           <div
             key={index}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
           >
-            <div className="rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
-              <img src={post.img} alt={post.title} className="w-full h-48 object-cover" />
-              <div className="p-4">
-                <p className="text-sm text-gray-500 mb-1">{post.date}</p>
-                <h3 className="text-lg font-semibold mb-2">{post.title}</h3>
-                <p className="text-sm text-pink-500 font-medium">{post.category}</p>
-              </div>
+            <img
+              src={post.img}
+              alt={post.title}
+              className="w-full h-52 sm:h-60 md:h-64 object-cover"
+            />
+            <div className="p-4 sm:p-5">
+              <p className="text-sm text-gray-500 mb-1">{post.date}</p>
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 line-clamp-2">
+                {post.title}
+              </h3>
+              <p className="text-sm text-pink-500 font-medium">{post.category}</p>
             </div>
           </div>
         ))}
